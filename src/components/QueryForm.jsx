@@ -1,7 +1,7 @@
 export const QueryForm = (props) => {
     return (
         <>
-            Query Form
+            <p>Query Form</p>
         </>
     )
 }

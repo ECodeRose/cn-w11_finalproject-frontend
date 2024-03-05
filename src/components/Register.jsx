@@ -1,7 +1,7 @@
 export const Register = (props) => {
     return (
         <>
-            Register
+            <p>Register</p>
         </>
     )
 }

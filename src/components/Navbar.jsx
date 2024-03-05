@@ -3,7 +3,7 @@ import UserInfo from "./UserInfo"
 export const Navbar = (props) => {
     return (
         <>
-            Navbar with links
+            <p>Navbar with links</p>
             <UserInfo />
         </>
     )

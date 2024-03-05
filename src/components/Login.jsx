@@ -1,7 +1,7 @@
 export const Login = (props) => {
     return (
         <>
-            Login
+            <p>Login</p>
         </>
     )
 }
