@@ -1,18 +1,19 @@
 import { useState } from 'react'
 
 import './App.css'
-import { BrowserRouter, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import PageHome from './pages/home/page-home'
+import PageUser from './pages/userpage/page-user'
 
 function App() {
 
     return (
         <>
-            <p>Hello World</p>
-
-            <BrowserRouter>
+            <BrowserRouter basename="">
 
                 <Routes>
-
+                    < Route path="" element={<PageHome />} />
+                    < Route path="/user" element={<PageUser />} />
                 </Routes>
 
             </BrowserRouter>
