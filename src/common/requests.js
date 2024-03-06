@@ -1,7 +1,6 @@
 export async function postRequest(url, query, headers) {
     if (!headers) headers = {
-        "Content-Type": "application/json", 
-        "Access-Control-Allow-Origin": "https://api.unsplash.com"
+        "Content-Type": "application/json"
     }
 
     return parseResponse(await fetch(url, {
