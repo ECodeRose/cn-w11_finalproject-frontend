@@ -4,11 +4,13 @@ import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import PageHome from './pages/home/page-home'
 import PageUser from './pages/userpage/page-user'
+import Navbar from './components/Navbar'
 
 function App() {
 
     return (
         <>
+            <Navbar />
             <BrowserRouter basename="">
 
                 <Routes>
