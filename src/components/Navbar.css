@@ -1,0 +1,37 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  box-sizing: border-box;
+  width: 100vw;
+}
+
+.navbar-toggle {
+  background-color: #fff;
+  color: #333;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.navbar-menu {
+  display: none;
+}
+
+.navbar-link {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 1rem;
+}
+
+@media (min-width: 768px) {
+  .navbar-menu {
+    display: block;
+  }
+
+  .navbar-link {
+    margin-right: 0;
+  }
+}
