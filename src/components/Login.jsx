@@ -39,9 +39,9 @@ export const Login = (props) => {
         />
         <button type="submit">Login</button>
       </form>
-      <button onClick={() => props.onFormSwitch("register")}>
+      {/* <button onClick={() => props.onFormSwitch("register")}>
         Don&apos;t have an account? Register here
-      </button>
+      </button> */}
     </div>
   );
 };

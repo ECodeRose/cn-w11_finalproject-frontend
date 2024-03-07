@@ -31,11 +31,11 @@ export const Register = (props) => {
           id="password"
           name="password"
         />
-        <button type="submit">Login</button>
+        <button type="submit">Register</button>
       </form>
-      <button onClick={() => props.onFormSwitch("login")}>
+      {/* <button onClick={() => props.onFormSwitch("login")}>
         Already have an account? Login here
-      </button>
+      </button> */}
     </div>
   );
 };
