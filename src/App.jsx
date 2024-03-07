@@ -2,8 +2,8 @@ import React, { useState } from "react";
 
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import PageHome from "./pages/home/page-home";
-import PageUser from "./pages/userpage/page-user";
+import PageHome from "./pages/page-home";
+import PageUser from "./pages/page-user";
 import Navbar from "./components/Navbar";
 
 function App() {
