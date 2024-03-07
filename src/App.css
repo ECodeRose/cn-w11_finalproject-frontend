@@ -5,6 +5,15 @@
   text-align: center;
 }
 
+.App {
+  text-align: center;
+  display: flex;
+  min-height: 100 vh;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
