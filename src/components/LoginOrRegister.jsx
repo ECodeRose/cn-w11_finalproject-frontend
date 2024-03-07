@@ -3,11 +3,10 @@ import Register from "./Register"
 
 export const LoginOrRegister = (props) => {
     return (
-        <>
-            <p>Login/Register</p>
+        <div className=".loginregister-holder">
             <Login />
             <Register />
-        </>
+        </div>
     )
 }
 
