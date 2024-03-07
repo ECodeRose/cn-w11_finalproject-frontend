@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { userContext } from "../common/contexts";
+import { postRequest } from "../common/requests";
 // import "./Login.css";
 // import { Link, useNavigate } from "react-router-dom";
 
@@ -11,23 +13,38 @@ import React, { useState } from "react";
 // import video from "../../LoginAssets/weatherVid.mp4";
 // import logo from "../../LoginAssets/logo.png";
 export const Login = (props) => {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [pass, setPass] = useState("");
+  const setUser = useContext(userContext).setUser;
 
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(email);
-  };
+
+    const reqBody = JSON.stringify({
+        username: username,
+        password: pass,
+    });
+
+    console.log(reqBody);
+
+    const response = await postRequest(`${import.meta.env.VITE_SERVER_URL}/users/logIn`, reqBody);
+
+    setUser(response.user);
+  }
+
+
+
   return (
     <div className="auth-form-container">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="email">email</label>
+        <label htmlFor="username">username</label>
         <input
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Enter email"
-          id="email"
-          name="email"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          placeholder="Enter username"
+          id="username"
+          name="username"
         />
         <label htmlFor="password">password</label>
         <input
@@ -39,9 +56,9 @@ export const Login = (props) => {
         />
         <button type="submit">Login</button>
       </form>
-      <button onClick={() => props.onFormSwitch("register")}>
+      {/* <button onClick={() => props.onFormSwitch("register")}>
         Don&apos;t have an account? Register here
-      </button>
+      </button> */}
     </div>
   );
 };

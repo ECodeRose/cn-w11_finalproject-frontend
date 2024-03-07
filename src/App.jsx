@@ -1,25 +1,18 @@
-import React, { useState } from "react";
-
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import PageHome from "./pages/page-home";
 import PageUser from "./pages/page-user";
 import Navbar from "./components/Navbar";
+import { userContext } from "./common/contexts";
+import { useState } from "react";
 
 function App() {
-  // const [currentForm, setCurrentForm] = useState('login')
+  const [user, setUser] = useState();
 
-  // const toggleForm = (formName) => {
-  //     setCurrentForm(formName);
-  // }
   return (
-    // <div className='App'>
-    //     {
-    //         currentForm === "login" ? <Login onFormSwitch={toggleForm} /> : <Register onFormSwitch={toggleForm}/>
-    //     }
-    // </div>
+    // Allows us to reach "user" and "setUser" from any component.
+    <userContext.Provider value={{ user, setUser }}>
 
-    <>
       <Navbar />
       <BrowserRouter basename="">
         <Routes>
@@ -27,7 +20,8 @@ function App() {
           <Route path="/user" element={<PageUser />} />
         </Routes>
       </BrowserRouter>
-    </>
+
+    </ userContext.Provider>
   );
 }
 

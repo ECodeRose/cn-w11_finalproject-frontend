@@ -8,15 +8,17 @@ export const QueryForm = (props) => {
     const [date, setDate] = useState(new Date());
     const [location, setLocation] = useState(null);
 
-    const sendRequest = () => {
-        console.log(date, "\n", location);
-
+    const sendRequest = async () => {
         const reqBody = JSON.stringify({
             date: date,
             location: location,
         });
 
-        postRequest(`${import.meta.env.VITE_SERVER_URL}/getweather`, reqBody);
+        props.setResponse("awaiting response from server");
+
+        const response = await postRequest(`${import.meta.env.VITE_SERVER_URL}/getweather`, reqBody);
+
+        props.setResponse(response);
     }
 
     return (
