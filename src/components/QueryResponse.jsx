@@ -27,13 +27,6 @@ export const QueryResponse = (props) => {
         <div>
             <Response />
         </div>
-        // <div className="query-response">
-        //     <p>Query Reponse</p>
-
-        //     {props.response && 
-        //         <Response />
-        //     }
-        // </div>
     )
 }
 
