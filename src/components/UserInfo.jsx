@@ -3,11 +3,10 @@ import './UserInfo.css';
 import { userContext } from '../common/contexts';
 
 const UserInfo = () => {
-    const user = useContext(userContext).user;
+    const {user, setUser} = useContext(userContext);
 
     const handleLogout = () => {
-        // Add logout logic here
-        alert('Logged out!');
+        setUser(null);
     };
 
     useEffect(() => {
