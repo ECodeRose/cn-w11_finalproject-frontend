@@ -27,5 +27,3 @@ const UserInfo = ({ name, surname, user, profilePicture }) => {
 
 export default UserInfo;
 
-
-export default UserInfo
