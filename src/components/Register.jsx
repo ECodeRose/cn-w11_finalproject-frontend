@@ -1,20 +1,36 @@
 import React, { useState } from "react";
+import { postRequest } from "../common/requests";
 
 export const Register = (props) => {
   const [email, setEmail] = useState("");
-  const [pass, setPass] = useState("");
-  const [name, setName] = useState("");
+  const [password, setPass] = useState("");
+  const [username, setName] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(email);
-  };
+
+    const reqBody = JSON.stringify({
+        username:   username,
+        email:      email,
+        password:   password,
+    });
+
+    console.log(reqBody);
+
+    const response = await postRequest(`${import.meta.env.VITE_SERVER_URL}/users/signUp`, reqBody);
+  }
 
   return (
     <div className="auth-form-container">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Full name</label>
-        <input value={name} name="name" id="name" placeholder="Full Name" />
+        <label htmlFor="name">Username</label>
+        <input 
+          value={username} 
+          name="username" 
+          id="username" 
+          placeholder="Username" 
+          onChange={(e) => setName(e.target.value)}
+        />
         <label htmlFor="email">email</label>
         <input
           value={email}
@@ -25,7 +41,7 @@ export const Register = (props) => {
         />
         <label htmlFor="password">password</label>
         <input
-          value={pass}
+          value={password}
           onChange={(e) => setPass(e.target.value)}
           placeholder="*********"
           id="password"

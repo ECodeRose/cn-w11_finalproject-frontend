@@ -10,19 +10,19 @@ const PageHome = (props) => {
 
     return (
         <>
-            <LoginOrRegister />
+            {/* <LoginOrRegister />
             <QueryForm setResponse={setResponse}/>
-            <QueryResponse response={response} />
+            <QueryResponse response={response} /> */}
 
             {/* TODO: Replace the above with the following once finished testing. */}
-            {/* { !user ?
+            { !user ?
                 <LoginOrRegister />
                 :
                 <>
                 <QueryForm setResponse={setResponse}/>
                 <QueryResponse response={response} />
                 </>
-            } */}
+            }
         </>
     )
 }
