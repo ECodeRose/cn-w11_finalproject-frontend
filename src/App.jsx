@@ -15,10 +15,12 @@ function App() {
 
       <Navbar />
       <BrowserRouter basename="">
+        <div id="content">
         <Routes>
           <Route path="" element={<PageHome />} />
           <Route path="/user" element={<PageUser />} />
         </Routes>
+        </div>
       </BrowserRouter>
 
     </ userContext.Provider>

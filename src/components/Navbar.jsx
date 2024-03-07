@@ -3,7 +3,7 @@ import UserInfo from "./UserInfo";
 import "./Navbar.css";
 
 export const Navbar = (props) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   return (
     <nav className="navbar">
@@ -12,7 +12,6 @@ export const Navbar = (props) => {
       </button>
       {isOpen && (
         <div className="navbar-menu">
-          <p className="navbar-link">Navbar with links</p>
           <UserInfo />
         </div>
       )}

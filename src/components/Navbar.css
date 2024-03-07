@@ -3,8 +3,8 @@
   justify-content: space-between;
   align-items: center;
   background-color: #333;
-  padding: 1rem;
   box-sizing: border-box;
+  width: 100vw;
 }
 
 .navbar-toggle {
