@@ -1,13 +1,7 @@
 import { useState } from "react";
-<<<<<<< HEAD
 import LoginOrRegister from "../components/LoginOrRegister";
 import QueryForm from "../components/QueryForm";
 import QueryResponse from "../components/QueryResponse";
-=======
-import LoginOrRegister from "../../components/LoginOrRegister";
-import QueryForm from "../../components/QueryForm";
-import QueryResponse from "../../components/QueryResponse";
->>>>>>> 8d283c482928758e018617dfe68aa90c1bbd0bdc
 
 const PageHome = (props) => {
     const [response, setResponse] = useState(null);
