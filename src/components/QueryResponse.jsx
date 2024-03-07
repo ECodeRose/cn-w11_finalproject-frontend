@@ -1,4 +1,5 @@
 import { useEffect } from "react"
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 export const QueryResponse = (props) => {
 
@@ -9,7 +10,7 @@ export const QueryResponse = (props) => {
     const Response = () => {
         if (!props.response) return
         else {
-            if (!props.response.location) return <p>Awaiting response from server.</p>;
+            if (!props.response.location) return <><p>Awaiting response from server.</p> <AiOutlineLoading3Quarters className="loading-icon"/></>;
             const location = props.response.location;
             const weather = props.response.weather;
             return (
