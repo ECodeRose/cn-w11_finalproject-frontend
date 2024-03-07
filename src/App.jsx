@@ -1,26 +1,34 @@
-import { useState } from 'react'
+import React, { useState } from "react";
 
-import './App.css'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import PageHome from './pages/home/page-home'
-import PageUser from './pages/userpage/page-user'
-import Navbar from './components/Navbar'
+import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import PageHome from "./pages/page-home";
+import PageUser from "./pages/page-user";
+import Navbar from "./components/Navbar";
 
 function App() {
+  // const [currentForm, setCurrentForm] = useState('login')
 
-    return (
-        <>
-            <Navbar />
-            <BrowserRouter basename="">
+  // const toggleForm = (formName) => {
+  //     setCurrentForm(formName);
+  // }
+  return (
+    // <div className='App'>
+    //     {
+    //         currentForm === "login" ? <Login onFormSwitch={toggleForm} /> : <Register onFormSwitch={toggleForm}/>
+    //     }
+    // </div>
 
-                <Routes>
-                    < Route path="" element={<PageHome />} />
-                    < Route path="/user" element={<PageUser />} />
-                </Routes>
-
-            </BrowserRouter>
-        </>
-    )
+    <>
+      <Navbar />
+      <BrowserRouter basename="">
+        <Routes>
+          <Route path="" element={<PageHome />} />
+          <Route path="/user" element={<PageUser />} />
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
 }
 
-export default App
+export default App;
