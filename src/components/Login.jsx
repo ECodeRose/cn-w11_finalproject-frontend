@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 // import "./Login.css";
 // import { Link, useNavigate } from "react-router-dom";
 
@@ -10,7 +10,7 @@ import React, { useState, useEffect } from "react";
 // // imported assets
 // import video from "../../LoginAssets/weatherVid.mp4";
 // import logo from "../../LoginAssets/logo.png";
-export const Login = () => {
+export const Login = (props) => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
 
@@ -19,9 +19,9 @@ export const Login = () => {
     console.log(email);
   };
   return (
-    <>
+    <div className="auth-form-container">
       <form onSubmit={handleSubmit}>
-        <label for="email">email</label>
+        <label htmlFor="email">email</label>
         <input
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -29,7 +29,7 @@ export const Login = () => {
           id="email"
           name="email"
         />
-        <label for="password">password</label>
+        <label htmlFor="password">password</label>
         <input
           value={pass}
           onChange={(e) => setPass(e.target.value)}
@@ -39,8 +39,10 @@ export const Login = () => {
         />
         <button type="submit">Login</button>
       </form>
-      <button>Don't have an account? Register here</button>
-    </>
+      <button onClick={() => props.onFormSwitch("register")}>
+        Don&apos;t have an account? Register here
+      </button>
+    </div>
   );
 };
 
