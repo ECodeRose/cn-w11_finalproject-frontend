@@ -18,10 +18,19 @@ export const Register = (props) => {
     console.log(reqBody);
 
     const response = await postRequest(`${import.meta.env.VITE_SERVER_URL}/users/signUp`, reqBody);
+
+    if (response.error) {
+      props.setFeedback(response.error)
+      props.setFeedbackType("error");
+    } else {
+      props.setFeedback("Registration successful.")
+      props.setFeedbackType("success");
+    }
   }
 
   return (
     <div className="auth-form-container">
+      <h2>Register</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Username</label>
         <input 

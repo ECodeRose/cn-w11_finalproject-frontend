@@ -18,6 +18,14 @@
 
 .navbar-menu {
   display: none;
+  width: 100%;
+}
+
+.navbar-links {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .navbar-link {
@@ -28,7 +36,7 @@
 
 @media (min-width: 768px) {
   .navbar-menu {
-    display: block;
+    display: flex;
   }
 
   .navbar-link {
