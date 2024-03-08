@@ -24,26 +24,30 @@ function App() {
   }, []);
 
   const logInWithToken = async (token, setUser) => {
-    const authorizedUser = await getRequest(
-      `${import.meta.env.VITE_SERVER_URL}/users/authCheck`,
+    console.log("token", token);
 
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
-    console.log("BLABLABLKA");
+    const authorizedUser = await fetch(`${import.meta.env.VITE_SERVER_URL}/users/authCheck`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    }).then((response) => {
+      console.log(response);
+      return response.json()
+    });
+
+    console.log(`Bearer ${token}`);
     console.log("Persistant User: ", authorizedUser);
-    await setUser(authorizedUser);
+    setUser(authorizedUser);
   };
   return (
     // Allows us to reach "user" and "setUser" from any component.
 
     <userContext.Provider value={{ user, setUser }}>
-      <Navbar />
+
       <BrowserRouter basename="">
+        <Navbar />
         <div id="content">
           <Routes>
             <Route path="" element={<PageHome />} />

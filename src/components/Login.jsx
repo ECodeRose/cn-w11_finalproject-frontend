@@ -26,19 +26,22 @@ export const Login = (props) => {
       password: pass,
     });
 
-    console.log(reqBody);
+    const response = await postRequest(`${import.meta.env.VITE_SERVER_URL}/users/logIn`, reqBody);
 
-    const response = await postRequest(
-      `${import.meta.env.VITE_SERVER_URL}/users/logIn`,
-      reqBody
-    );
-    Cookie.set("jwt_token", response.user.token, { expires: 7 }, { path: "/" });
-
-    setUser(response.user);
-  };
+    if (response.error) {
+      props.setFeedback(response.error)
+      props.setFeedbackType("error");
+    } else {
+      props.setFeedback("Login successful.") // The page will probably update before this is visible but it's here just in case.
+      props.setFeedbackType("success");
+      setUser(response.user);
+      Cookie.set("jwt_token", response.user.token, { expires: 7 }, { path: "/" });
+    }
+  }
 
   return (
     <div className="auth-form-container">
+      <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="username">username</label>
         <input
