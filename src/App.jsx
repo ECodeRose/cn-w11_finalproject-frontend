@@ -34,8 +34,8 @@ function App() {
         },
       }
     );
-    console.log("BLABLABLKA");
-    console.log("Persistant User: ", authorizedUser);
+    console.log("Persistent User: ", authorizedUser);
+    console.log("blabla");
     await setUser(authorizedUser);
   };
   return (

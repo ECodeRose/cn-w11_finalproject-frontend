@@ -32,9 +32,15 @@ export const Login = (props) => {
       `${import.meta.env.VITE_SERVER_URL}/users/logIn`,
       reqBody
     );
-    Cookie.set("jwt_token", response.user.token, { expires: 7 }, { path: "/" });
-
+    const cookie = Cookie.set(
+      "jwt_token",
+      response.user.token,
+      { expires: 7 },
+      { path: "/" }
+    );
+    console.log(cookie);
     setUser(response.user);
+    return cookie;
   };
 
   return (
