@@ -1,22 +1,26 @@
 .loginregister-holder {
-    background-color: white;
+    background-color: var(--elementbg);
     padding: 20px;
     margin: 20px;
-    max-width: 250px;
+    width: 200px;
     align-self: center;
     height: 300px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    box-shadow: 0 0 20px var(--boxglow);
 }
 
-.auth-form-container>form button:last-of-type {
+form button:last-of-type {
     align-self: flex-end;
     margin-top: auto;
 }
 
-.loginregister-holder>.auth-form-container>form {
+.loginregister-holder>form {
     display: flex;
     flex-direction: column;
     justify-content: start;
-    margin: 10px;
+}
+
+.loginregister-holder>form button {
+    position:absolute;
+    bottom: 55px;
 }
