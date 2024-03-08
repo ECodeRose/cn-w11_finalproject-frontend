@@ -1,26 +1,30 @@
-import { useState } from 'react'
-
-import './App.css'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import PageHome from './pages/home/page-home'
-import PageUser from './pages/userpage/page-user'
-import Navbar from './components/Navbar'
+import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import PageHome from "./pages/page-home";
+import PageUser from "./pages/page-user";
+import Navbar from "./components/Navbar";
+import { userContext } from "./common/contexts";
+import { useState } from "react";
 
 function App() {
+  const [user, setUser] = useState();
 
-    return (
-        <>
-            <Navbar />
-            <BrowserRouter basename="">
+  return (
+    // Allows us to reach "user" and "setUser" from any component.
+    <userContext.Provider value={{ user, setUser }}>
 
-                <Routes>
-                    < Route path="" element={<PageHome />} />
-                    < Route path="/user" element={<PageUser />} />
-                </Routes>
+      <BrowserRouter basename="">
+        <Navbar />
+        <div id="content">
+        <Routes>
+          <Route path="" element={<PageHome />} />
+          <Route path="/user" element={<PageUser />} />
+        </Routes>
+        </div>
+      </BrowserRouter>
 
-            </BrowserRouter>
-        </>
-    )
+    </ userContext.Provider>
+  );
 }
 
-export default App
+export default App;

@@ -1,0 +1,12 @@
+.loginregister-holder {
+    border: 2px solid black;
+    background-color: beige;
+    padding: 20px;
+    margin: 20px;
+}
+
+.loginregister-holder>.auth-form-container>form {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}

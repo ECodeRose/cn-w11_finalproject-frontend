@@ -1,12 +1,32 @@
-import UserInfo from "./UserInfo"
+import { useContext, useState } from "react";
+import UserInfo from "./UserInfo";
+import "./Navbar.css";
+import { NavLink } from "react-router-dom";
+import { userContext } from "../common/contexts";
 
 export const Navbar = (props) => {
-    return (
-        <>
-            <p>Navbar with links</p>
-            <UserInfo />
-        </>
-    )
-}
+  const [isOpen, setIsOpen] = useState(true);
+  const user = useContext(userContext).user;
 
-export default Navbar
+  return (
+    <nav className="navbar">
+      <button onClick={() => setIsOpen(!isOpen)} className="navbar-toggle">
+        Toggle Navbar
+      </button>
+      {isOpen && (
+        <div className="navbar-menu">
+          {user && <>
+            <div className="navbar-links">
+              <NavLink to="/"><button className="user-info-button">Dashboard</button></NavLink>
+              <NavLink to="/user"><button className="user-info-button">Profile</button></NavLink>
+            </div>
+            <UserInfo />
+            </>
+          }
+        </div>
+      )}
+    </nav>
+  );
+};
+
+export default Navbar;
