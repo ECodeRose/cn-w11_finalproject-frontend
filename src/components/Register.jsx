@@ -25,7 +25,6 @@ export const Register = (props) => {
     } else {
       props.setFeedback("Registration successful.")
       props.setFeedbackType("success");
-      setUser(response.user);
     }
   }
 
