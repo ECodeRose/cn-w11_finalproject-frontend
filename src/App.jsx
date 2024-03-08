@@ -13,8 +13,8 @@ function App() {
     // Allows us to reach "user" and "setUser" from any component.
     <userContext.Provider value={{ user, setUser }}>
 
-      <Navbar />
       <BrowserRouter basename="">
+        <Navbar />
         <div id="content">
         <Routes>
           <Route path="" element={<PageHome />} />
