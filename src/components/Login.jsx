@@ -29,7 +29,7 @@ export const Login = (props) => {
     const response = await postRequest(`${import.meta.env.VITE_SERVER_URL}/users/logIn`, reqBody);
 
     if (response.error) {
-      props.setFeedback("There was a problem. Try again.")
+      props.setFeedback(response.error)
       props.setFeedbackType("error");
     } else {
       props.setFeedback("Login successful.") // The page will probably update before this is visible but it's here just in case.
