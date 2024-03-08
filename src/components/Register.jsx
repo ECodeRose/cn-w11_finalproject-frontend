@@ -18,6 +18,14 @@ export const Register = (props) => {
     console.log(reqBody);
 
     const response = await postRequest(`${import.meta.env.VITE_SERVER_URL}/users/signUp`, reqBody);
+
+    if (response.error) {
+      props.setFeedback(response.error)
+      props.setFeedbackType("error");
+    } else {
+      props.setFeedback("Registration successful.")
+      props.setFeedbackType("success");
+    }
   }
 
   return (
