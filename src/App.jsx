@@ -41,8 +41,8 @@ function App() {
     });
 
     console.log(`Bearer ${token}`);
-    console.log("Persistant User: ", authorizedUser);
-    setUser(authorizedUser);
+    console.log("Persistant User: ", authorizedUser.user);
+    setUser(authorizedUser.user);
   };
   return (
     // Allows us to reach "user" and "setUser" from any component.
