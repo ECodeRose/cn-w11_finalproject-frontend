@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { userContext } from "../common/contexts";
 import { postRequest } from "../common/requests";
+import Cookie from "js-cookie";
 // import "./Login.css";
 // import { Link, useNavigate } from "react-router-dom";
 
@@ -17,23 +18,24 @@ export const Login = (props) => {
   const [pass, setPass] = useState("");
   const setUser = useContext(userContext).setUser;
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const reqBody = JSON.stringify({
-        username: username,
-        password: pass,
+      username: username,
+      password: pass,
     });
 
     console.log(reqBody);
 
-    const response = await postRequest(`${import.meta.env.VITE_SERVER_URL}/users/logIn`, reqBody);
+    const response = await postRequest(
+      `${import.meta.env.VITE_SERVER_URL}/users/logIn`,
+      reqBody
+    );
+    Cookie.set("jwt_token", response.user.token, { expires: 7 }, { path: "/" });
 
     setUser(response.user);
-  }
-
-
+  };
 
   return (
     <div className="auth-form-container">
