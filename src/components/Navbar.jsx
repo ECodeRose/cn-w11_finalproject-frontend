@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import UserInfo from "./UserInfo";
 import "./Navbar.css";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { userContext } from "../common/contexts";
 
 export const Navbar = (props) => {
@@ -17,8 +17,8 @@ export const Navbar = (props) => {
         <div className="navbar-menu">
           {user && <>
             <div className="navbar-links">
-              <Link to="/"><button className="user-info-button">Dashboard</button></Link>
-              <Link to="/user"><button className="user-info-button">Profile</button></Link>
+              <NavLink to="/"><button className="user-info-button">Dashboard</button></NavLink>
+              <NavLink to="/user"><button className="user-info-button">Profile</button></NavLink>
             </div>
             <UserInfo />
             </>
