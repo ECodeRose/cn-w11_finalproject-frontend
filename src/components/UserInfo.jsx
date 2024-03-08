@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import "./userInfo.css";
+import "./UserInfo.css";
 import { userContext } from "../common/contexts";
 import Cookie from "js-cookie";
 
