@@ -11,6 +11,9 @@
     animation: rotating 2s linear infinite;
 }
 
+.feedback.type-error {background-color: rgb(255, 186, 107);}
+.feedback.type-success {background-color: rgb(174, 255, 107);}
+
 @keyframes rotating {
     from {
         transform: rotate(0deg);
