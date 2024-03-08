@@ -1,3 +1,5 @@
+
+
 #content {
   max-width: 1280px;
   display: flex;
@@ -9,6 +11,10 @@
 
 .loading-icon {
     animation: rotating 2s linear infinite;
+}
+
+h2 {
+    margin: 0;
 }
 
 .feedback.type-error {background-color: rgb(255, 186, 107);}
