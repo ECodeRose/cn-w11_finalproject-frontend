@@ -43,6 +43,20 @@ const UserSettings = () => {
     }
   };
 
+  const [hometown, setHometown] = useState("");
+  const [favouriteTowns, setFavouriteTowns] = useState([]);
+
+  const handleAddFavouriteTown = (e) => {
+    e.preventDefault();
+    if (favouriteTowns.length < 3 && favouriteTowns.indexOf(hometown) === -1) {
+      setFavouriteTowns([...favouriteTowns, hometown]);
+      setHometown("");
+    }
+  };
+  const handleRemoveFavouriteTown = (town) => {
+    setFavouriteTowns(favouriteTowns.filter((t) => t !== town));
+  };
+
   return (
     <div>
       <h1>User Settings</h1>
@@ -68,6 +82,27 @@ const UserSettings = () => {
       <form onSubmit={handleDeleteAccount}>
         <button type="submit">Delete Account</button>
       </form>
+      <form onSubmit={handleAddFavouriteTown}>
+        <label htmlFor="hometown">Hometown</label>
+        <input
+          type="text"
+          value={hometown}
+          onChange={(e) => setHometown(e.target.value)}
+          id="hometown"
+          name="hometown"
+        />
+        <button type="submit">Add Favourite Town</button>
+      </form>
+      <ul>
+        {favouriteTowns.map((town) => (
+          <li key={town}>
+            {town}
+            <button onClick={() => handleRemoveFavouriteTown(town)}>
+              Remove
+            </button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
