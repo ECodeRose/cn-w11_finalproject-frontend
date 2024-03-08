@@ -11,7 +11,7 @@ export const LoginOrRegister = (props) => {
     useEffect(() => {}, [feedback]);
 
     return (
-        <div>
+        <div className="flex">
 
             <button onClick={() => {
                 setFeedback(null); // Clear feedback when switching forms.

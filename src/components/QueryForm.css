@@ -1,3 +1,8 @@
+.request {
+    max-width: 250px;
+    align-self: center;
+}
+
 .request-form {
     display: flex;
     flex-direction: column;

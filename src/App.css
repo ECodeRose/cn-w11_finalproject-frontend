@@ -1,9 +1,26 @@
 #content {
   display: flex;
   text-align: center;
-  justify-content: center;
+  align-content: center;
   min-height: 300px;
+  flex-direction: column;
+  padding: 20px;
 }
+
+button {
+    width: fit-content;
+}
+
+form>input {
+    min-height: 35px;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 
 .loading-icon {
     animation: rotating 2s linear infinite;

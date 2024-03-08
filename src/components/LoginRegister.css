@@ -1,12 +1,22 @@
 .loginregister-holder {
-    border: 2px solid black;
-    background-color: beige;
+    background-color: white;
     padding: 20px;
     margin: 20px;
+    max-width: 250px;
+    align-self: center;
+    height: 300px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.auth-form-container>form button:last-of-type {
+    align-self: flex-end;
+    margin-top: auto;
 }
 
 .loginregister-holder>.auth-form-container>form {
     display: flex;
     flex-direction: column;
+    justify-content: start;
     margin: 10px;
 }
