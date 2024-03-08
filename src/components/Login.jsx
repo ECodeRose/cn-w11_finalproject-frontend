@@ -26,10 +26,7 @@ export const Login = (props) => {
       password: pass,
     });
 
-    const response = await postRequest(
-      `${import.meta.env.VITE_SERVER_URL}/users/logIn`,
-      reqBody
-    );
+    const response = await postRequest(`${import.meta.env.VITE_SERVER_URL}/users/logIn`, reqBody);
 
     if (response.error) {
       props.setFeedback(response.error);
