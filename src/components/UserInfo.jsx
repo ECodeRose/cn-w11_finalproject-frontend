@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import './UserInfo.css';
 import { userContext } from '../common/contexts';
 
@@ -25,8 +25,6 @@ const UserInfo = () => {
                 </div>
                 <div className="user-info-right">
                     <button className="user-info-button" onClick={handleLogout}>Logout</button>
-                    <button className="user-info-button">Profile</button>
-                    <button className="user-info-button">Settings</button>
                 </div>
             </div>
         );
