@@ -16,7 +16,7 @@
     --elementtextToggleable: var(--elementtextDay);
 
     --boxglowDay: rgba(0, 0, 0, 0.555);
-    --boxglowNight: rgba(255, 255, 255, 0.541);
+    --boxglowNight: #5cc2e1;
     --boxglowToggleable: var(--boxglowDay);
 }
 
@@ -41,6 +41,8 @@ form {
 
 button {
     width: fit-content;
+    position: relative;
+    z-index: 10;
 }
 
 form>input {
