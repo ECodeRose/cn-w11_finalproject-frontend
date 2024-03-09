@@ -12,13 +12,7 @@ export const LoginOrRegister = (props) => {
 
     return (
         <div className="flex">
-
-            <button onClick={() => {
-                setFeedback(null); // Clear feedback when switching forms.
-                setLoginMode(!loginMode)
-            }}>{loginMode ? "Not registered?" : "Already have an account?"}</button>
-            
-            <div className="loginregister-holder">
+            <div className="loginregister-holder blurbg">
                 {loginMode ?
                 <Login      setFeedback={setFeedback}   setFeedbackType={setFeedbackType}/>
                 :
@@ -29,6 +23,11 @@ export const LoginOrRegister = (props) => {
                     <div className={`feedback type-${feedbackType}`}>{feedback}</div>
                 }
             </div>
+
+            <button onClick={() => {
+                setFeedback(null); // Clear feedback when switching forms.
+                setLoginMode(!loginMode)
+            }}>{loginMode ? "Not registered?" : "Already have an account?"}</button>
         </div>
     )
 }

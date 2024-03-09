@@ -6,7 +6,7 @@
     align-self: center;
     height: 300px;
     border-radius: 10px;
-    box-shadow: 0 0 50px var(--boxglowToggleable);
+    box-shadow: 0 10px 30px var(--boxglowToggleable), inset 0 0 100px rgba(255, 255, 255, 0.322);
 }
 
 form button:last-of-type {

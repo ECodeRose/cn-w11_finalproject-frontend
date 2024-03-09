@@ -31,7 +31,6 @@ body {
   
   background-image: var(--bgimageToggleable);
   background-size: cover;
-  background-position: 100%;
 }
 
 h1 {

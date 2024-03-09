@@ -3,26 +3,30 @@
     --bgimageNight: url(https://images.unsplash.com/photo-1533983272060-edb6f56af634?q=80&w=1923&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
     --bgimageToggleable: var(--bgimageDay);
 
-    --elementbgDay: rgb(255, 255, 255);
-    --elementbgNight: #23394f;
+    --elementbgDay: #ffffffcc;
+    --elementbgNight: #202e3b99;
     --elementbgToggleable: var(--elementbgDay);
 
     --inputbgDay: white;
-    --inputbgNight: rgb(202, 219, 235);
+    --inputbgNight: #cadbeb;
     --inputbgToggleable: var(--inputbgDay);
 
     --elementtextDay: #213547;
-    --elementtextNight: rgb(215, 236, 255);
+    --elementtextNight: rgb(248, 255, 236);
     --elementtextToggleable: var(--elementtextDay);
 
     --boxglowDay: rgba(0, 0, 0, 0.555);
-    --boxglowNight: #5cc2e1;
+    --boxglowNight: #000000;
     --boxglowToggleable: var(--boxglowDay);
 }
 
 input {
     border: 1px solid black;
     background-color: var(--inputbgToggleable);
+}
+
+.blurbg {
+    backdrop-filter: blur(20px);
 }
 
 #content {
