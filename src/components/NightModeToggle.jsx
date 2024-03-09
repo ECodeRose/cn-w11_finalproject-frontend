@@ -20,8 +20,8 @@ export const NightModeToggle = () => {
         .map(parts => ({key: parts[0].trim(), value: parts[1].trim() }))
 
         variables.forEach((variable) => {
-            if (variable.key.indexOf("Toggleable") != -1) {
-                const newValue = variable.key.replace("Toggleable", nightMode ? "Night" : "Day")
+            if (variable.key.indexOf("Toggle") != -1) {
+                const newValue = variable.key.replace("Toggle", nightMode ? "Night" : "Day")
                 console.log(variable.key, `var(${newValue})`);
                 document.documentElement.style.setProperty(variable.key, `var(${newValue})`);
             }

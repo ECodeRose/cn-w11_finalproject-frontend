@@ -1,28 +1,50 @@
 :root {
-    --bgimageDay: url(https://images.unsplash.com/photo-1597571063304-81f081944ee8?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
-    --bgimageNight: url(https://images.unsplash.com/photo-1533983272060-edb6f56af634?q=80&w=1923&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
-    --bgimageToggleable: var(--bgimageDay);
+    --bgimage-Day: url(https://images.unsplash.com/photo-1597571063304-81f081944ee8?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    --bgimage-Night: url(https://images.unsplash.com/photo-1533983272060-edb6f56af634?q=80&w=1923&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    --bgimage-Toggle: var(--bgimage-Day);
 
-    --elementbgDay: #ffffffcc;
-    --elementbgNight: #202e3b99;
-    --elementbgToggleable: var(--elementbgDay);
+    --elementbg-Day: #ffffffcc;
+    --elementbg-Night: #202e3b99;
+    --elementbg-Toggle: var(--elementbg-Day);
 
-    --inputbgDay: white;
-    --inputbgNight: #cadbeb;
-    --inputbgToggleable: var(--inputbgDay);
+    --inputbg-Day: white;
+    --inputbg-Night: #cadbeb;
+    --inputbg-Toggle: var(--inputbg-Day);
 
-    --elementtextDay: #213547;
-    --elementtextNight: rgb(248, 255, 236);
-    --elementtextToggleable: var(--elementtextDay);
+    --elementtext-Day: #213547;
+    --elementtext-Night: rgb(248, 255, 236);
+    --elementtext-Toggle: var(--elementtext-Day);
 
-    --boxglowDay: rgba(0, 0, 0, 0.555);
-    --boxglowNight: #000000;
-    --boxglowToggleable: var(--boxglowDay);
+    --boxglow-Day: rgba(0, 0, 0, 0.555);
+    --boxglow-Night: #000000;
+    --boxglow-Toggle: var(--boxglow-Day);
+
+    --boxcolour-Day: #099ED1;
+    --boxcolour-Night: #112637;
+    --boxcolour-Toggle: var(--boxglow-Day);
+
+    --buttonbgColour-Day: #03779e;
+    --buttonbgColour-Night: #14222b;
+    --buttonbgColour-Toggle: var(--buttonbgColour-Day);
+
+    --buttonBorderColour-Day: #14222b00;
+    --buttonBorderColour-Night: #03779e;
+    --buttonBorderColour-Toggle: var(--buttonbgColour-Day);
+}
+
+button {
+    background-color: var(--buttonbgColour-Toggle);
+    color: white;
+    border: solid 1px var(--buttonBorderColour-Toggle);
+}
+
+button:hover {
+    border-color: white;;
 }
 
 input {
     border: 1px solid black;
-    background-color: var(--inputbgToggleable);
+    background-color: var(--inputbg-Toggle);
 }
 
 .blurbg {
