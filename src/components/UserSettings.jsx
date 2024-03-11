@@ -70,6 +70,7 @@ const UserSettings = () => {
   return (
     <div className="usersettings element">
       <h2>User Settings</h2>
+      <div className="element noshadow">
       <h3>Set favourite towns</h3>
       <form onSubmit={handleAddFavouriteTown}>
         <label htmlFor="hometown">Hometown</label>
@@ -82,30 +83,35 @@ const UserSettings = () => {
         />
         <button type="submit">Add Favourite Town</button>
       </form>
-      <h3>Change password</h3>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="password">New Password</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          id="password"
-          name="password"
-        />
-        <label htmlFor="confirmPassword">Confirm New Password</label>
-        <input
-          type="password"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          id="confirmPassword"
-          name="confirmPassword"
-        />
-        <button type="submit">Update Password</button>
-      </form>
-      <h3>Delete account</h3>
-      <form onSubmit={handleDeleteAccount}>
-        <button type="submit">Delete Account</button>
-      </form>
+      </div>
+      <div className="element noshadow">
+        <h3>Change password</h3>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="password">New Password</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            id="password"
+            name="password"
+          />
+          <label htmlFor="confirmPassword">Confirm New Password</label>
+          <input
+            type="password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            id="confirmPassword"
+            name="confirmPassword"
+          />
+          <button type="submit">Update Password</button>
+        </form>
+      </div>
+      <div className="element noshadow">
+        <h3>Delete account</h3>
+        <form onSubmit={handleDeleteAccount}>
+          <button type="submit">Delete Account</button>
+        </form>
+      </div>
       <ul>
         {favouriteTowns.map((town) => (
           <li key={town}>
