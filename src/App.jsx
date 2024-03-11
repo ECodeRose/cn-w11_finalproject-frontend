@@ -5,7 +5,6 @@ import PageUser from "./pages/page-user";
 import Navbar from "./components/Navbar";
 import { useEffect } from "react";
 import Cookie from "js-cookie";
-import { getRequest } from "./common/requests";
 import { userContext } from "./common/contexts";
 import { useState } from "react";
 import LoginOrRegister from "./components/LoginOrRegister"
