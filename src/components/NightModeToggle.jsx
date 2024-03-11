@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { IoMdSunny, IoMdMoon } from "react-icons/io";
+import { userContext } from "../common/contexts";
 
 export const NightModeToggle = () => {
-    const [nightMode, setMode] = useState(false);
+    const {nightMode, setNightMode} = useContext(userContext);
 
     useEffect(() => {
-
         const variables = Array.from(document.styleSheets)
         .filter(styleSheet => {
             return styleSheet.cssRules;
@@ -29,7 +29,7 @@ export const NightModeToggle = () => {
     }, [nightMode]);
 
     return (
-        <div className="nightmode-toggle" onClick={()=>setMode(!nightMode)}>
+        <div className="nightmode-toggle" onClick={()=>setNightMode(!nightMode)}>
             {!nightMode ?
                 <IoMdSunny />
                 :
