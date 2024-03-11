@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import Cookie from "js-cookie";
 import { userContext } from "./common/contexts";
 import { useState } from "react";
-import LoginOrRegister from "./components/LoginOrRegister"
+import LoginOrRegister from "./components/LoginOrRegister";
 
 function App() {
   const [user, setUser] = useState();
@@ -51,15 +51,14 @@ function App() {
       <BrowserRouter basename="">
         <Navbar />
         <div id="content">
-
-        { !user ?
-          <LoginOrRegister />
-          :
-          <Routes>
-            <Route path="" element={<PageHome />} />
-            <Route path="/user" element={<PageUser />} />
-          </Routes>
-        }
+          {!user ? (
+            <LoginOrRegister />
+          ) : (
+            <Routes>
+              <Route path="" element={<PageHome />} />
+              <Route path="/user" element={<PageUser />} />
+            </Routes>
+          )}
         </div>
       </BrowserRouter>
     </userContext.Provider>
