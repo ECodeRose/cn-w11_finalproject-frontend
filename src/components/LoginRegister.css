@@ -1,12 +1,13 @@
 .loginregister-holder {
-    background-color: var(--elementbg);
+    background-color: var(--elementbg-Toggle);
     padding: 20px;
     margin: 20px;
     width: 200px;
     align-self: center;
     height: 300px;
     border-radius: 10px;
-    box-shadow: 0 0 20px var(--boxglow);
+    box-shadow: 0 10px 30px var(--boxglow-Toggle), inset 0 0 60px rgba(220, 230, 238, 0.203);
+    transition: all 0.25s;
 }
 
 form button:last-of-type {
