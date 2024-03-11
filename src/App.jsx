@@ -5,6 +5,7 @@ import PageUser from "./pages/page-user";
 import Navbar from "./components/Navbar";
 import { userContext } from "./common/contexts";
 import { useState } from "react";
+import LoginOrRegister from "./components/LoginOrRegister"
 
 function App() {
   const [user, setUser] = useState();
@@ -16,10 +17,15 @@ function App() {
       <BrowserRouter basename="">
         <Navbar />
         <div id="content">
-        <Routes>
+
+        { !user ?
+          <LoginOrRegister />
+          :
+          <Routes>
           <Route path="" element={<PageHome />} />
           <Route path="/user" element={<PageUser />} />
-        </Routes>
+          </Routes>
+        }
         </div>
       </BrowserRouter>
 
