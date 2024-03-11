@@ -4,11 +4,11 @@
     --bgimage-Toggle: var(--bgimage-Day);
 
     --elementbg-Day: #ffffffcc;
-    --elementbg-Night: #202e3b99;
+    --elementbg-Night: #41698f6b;
     --elementbg-Toggle: var(--elementbg-Day);
 
     --inputbg-Day: white;
-    --inputbg-Night: #cadbeb;
+    --inputbg-Night: #14222b;
     --inputbg-Toggle: var(--inputbg-Day);
 
     --elementtext-Day: #213547;
@@ -45,6 +45,7 @@ button:hover {
 input {
     border: 1px solid black;
     background-color: var(--inputbg-Toggle);
+    color: var(--elementtext-Toggle);
 }
 
 .blurbg {
@@ -90,7 +91,7 @@ h2 {
     margin: 0;
 }
 
-.feedback {padding: 10px 10px;}
+.feedback {padding: 10px 10px; color: black}
 .feedback.type-error {background-color: rgb(252, 210, 162);}
 .feedback.type-success {background-color: rgb(204, 252, 164);}
 
