@@ -1,12 +1,14 @@
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
 import "./QueryForm.css"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { postRequest } from "../common/requests"
+import { userContext } from "../common/contexts"
 
 export const QueryForm = (props) => {
     const [date, setDate] = useState(new Date());
     const [location, setLocation] = useState(null);
+    const user = useContext(userContext).user;
 
     const sendRequest = async () => {
         const reqBody = JSON.stringify({
@@ -14,9 +16,16 @@ export const QueryForm = (props) => {
             location: location,
         });
 
+        const reqHeaders = {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${user.token}`
+        }
+
+        console.log(reqHeaders);
+
         props.setResponse("awaiting response from server");
 
-        const response = await postRequest(`${import.meta.env.VITE_SERVER_URL}/getweather`, reqBody);
+        const response = await postRequest(`${import.meta.env.VITE_SERVER_URL}/getweather`, reqBody, reqHeaders);
 
         props.setResponse(response);
     }
