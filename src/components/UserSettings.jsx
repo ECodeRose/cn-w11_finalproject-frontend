@@ -71,19 +71,31 @@ const UserSettings = () => {
     <div className="usersettings element">
       <h2>User Settings</h2>
       <div className="element noshadow">
-      <h3>Set favourite towns</h3>
-      <form onSubmit={handleAddFavouriteTown}>
-        <label htmlFor="hometown">Hometown</label>
-        <input
-          type="text"
-          value={hometown}
-          onChange={(e) => setHometown(e.target.value)}
-          id="hometown"
-          name="hometown"
-        />
-        <button type="submit">Add Favourite Town</button>
-      </form>
+        <h3>Set favourite towns</h3>
+        <form onSubmit={handleAddFavouriteTown}>
+          <label htmlFor="hometown">Hometown</label>
+          <input
+            type="text"
+            value={hometown}
+            onChange={(e) => setHometown(e.target.value)}
+            id="hometown"
+            name="hometown"
+          />
+          <button type="submit">Add Favourite Town</button>
+        </form>
+
+        <ul>
+          {favouriteTowns.map((town) => (
+            <li key={town}>
+              {town}
+              <button onClick={() => handleRemoveFavouriteTown(town)}>
+                Remove
+              </button>
+            </li>
+          ))}
+        </ul>
       </div>
+
       <div className="element noshadow">
         <h3>Change password</h3>
         <form onSubmit={handleSubmit}>
@@ -106,22 +118,13 @@ const UserSettings = () => {
           <button type="submit">Update Password</button>
         </form>
       </div>
+
       <div className="element noshadow">
         <h3>Delete account</h3>
         <form onSubmit={handleDeleteAccount}>
           <button type="submit">Delete Account</button>
         </form>
-      </div>
-      <ul>
-        {favouriteTowns.map((town) => (
-          <li key={town}>
-            {town}
-            <button onClick={() => handleRemoveFavouriteTown(town)}>
-              Remove
-            </button>
-          </li>
-        ))}
-      </ul>
+      </div>      
     </div>
   );
 };
