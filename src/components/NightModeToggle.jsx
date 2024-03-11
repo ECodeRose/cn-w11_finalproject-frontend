@@ -22,7 +22,6 @@ export const NightModeToggle = () => {
         variables.forEach((variable) => {
             if (variable.key.indexOf("Toggle") != -1) {
                 const newValue = variable.key.replace("Toggle", nightMode ? "Night" : "Day")
-                console.log(variable.key, `var(${newValue})`);
                 document.documentElement.style.setProperty(variable.key, `var(${newValue})`);
             }
         });
