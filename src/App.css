@@ -52,6 +52,19 @@ input {
     backdrop-filter: blur(20px);
 }
 
+.element {
+    align-self: center;
+    max-width: 600px;
+    background-color: var(--elementbg-Toggle);
+    margin: 20px;
+    align-self: center;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px var(--boxglow-Toggle);
+    transition: all 0.25s;
+
+    padding: 20px;
+}
+
 #content {
     display: flex;
     text-align: center;
@@ -64,6 +77,10 @@ input {
 form {
     position:relative;
     height: 100%;
+}
+
+form>input {
+    margin: 8px;
 }
 
 button {
@@ -89,6 +106,15 @@ form>input {
 
 h2 {
     margin: 0;
+}
+
+.usersettings form {
+    border: 1px solid var(--elementtext-Toggle);
+    border-radius: 10px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
 }
 
 .feedback {padding: 10px 10px; color: black}

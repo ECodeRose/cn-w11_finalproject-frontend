@@ -7,11 +7,12 @@
     border-radius: 10px;
     box-shadow: 0 10px 30px var(--boxglow-Toggle);
     transition: all 0.25s;
+
+    overflow: hidden;
 }
 
 form button:last-of-type {
     align-self: flex-end;
-    margin-top: auto;
 }
 
 .loginregister-holder>form {
