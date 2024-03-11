@@ -46,8 +46,8 @@ export const Login = (props) => {
 
   return (
     <>
-      <h2>Login</h2>
       <form onSubmit={handleSubmit}>
+        <h2>Login</h2>
         <label htmlFor="username">username</label>
         <input
           value={username}
@@ -58,6 +58,7 @@ export const Login = (props) => {
         />
         <label htmlFor="password">password</label>
         <input
+          type="password"
           value={pass}
           onChange={(e) => setPass(e.target.value)}
           placeholder="*********"
