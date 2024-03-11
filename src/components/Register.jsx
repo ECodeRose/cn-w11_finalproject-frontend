@@ -30,8 +30,8 @@ export const Register = (props) => {
 
   return (
     <>
-      <h2>Register</h2>
       <form onSubmit={handleSubmit}>
+        <h2>Register</h2>
         <label htmlFor="name">Username</label>
         <input 
           value={username} 
@@ -42,6 +42,7 @@ export const Register = (props) => {
         />
         <label htmlFor="email">email</label>
         <input
+          type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Enter email"
@@ -50,6 +51,7 @@ export const Register = (props) => {
         />
         <label htmlFor="password">password</label>
         <input
+          type="password"
           value={password}
           onChange={(e) => setPass(e.target.value)}
           placeholder="*********"

@@ -2,7 +2,7 @@ import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
 import "./QueryForm.css"
 import { useState } from "react"
-import { getRequest, postRequest } from "../common/requests"
+import { postRequest } from "../common/requests"
 
 export const QueryForm = (props) => {
     const [date, setDate] = useState(new Date());
@@ -22,8 +22,8 @@ export const QueryForm = (props) => {
     }
 
     return (
-        <div className="request">
-            <p>Request Form</p>
+        <div className="request element">
+            <h2>Enter your location:</h2>
             <form className="request-form" onSubmit={(e) => e.preventDefault()}>
                 <input 
                     className="location-search" 
@@ -31,10 +31,10 @@ export const QueryForm = (props) => {
                     onChange={(e) => setLocation(e.target.value)}
                 ></input>
                 <DatePicker 
-                    showicon 
                     selected={date}
                     dateFormat="dd MMM yyyy"
                     onChange={(calendarDate) => setDate(calendarDate)}
+                    todayButton="Click here for today"
                 />
                 <button onClick={sendRequest}>Send Request</button>
             </form>

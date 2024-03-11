@@ -15,9 +15,9 @@ export const QueryResponse = (props) => {
             const weather = props.response.weather;
             return (
                 <>
-                    <p>Showing weather information for {location.city}, {location.county} in {location.country}</p>
-                    <p>Today{"'"}s weather is {weather.weathername[0]}.</p>
-                    <p>The highest temperature today will be {weather.temperature[0]} degrees celsius.</p>
+                    <h4>Showing weather information for {location.city}, {location.county} in {location.country}</h4>
+                    <h3>Today{"'"}s weather is {weather.weathername[0]}.</h3>
+                    <h3>The highest temperature today will be {weather.temperature[0]} degrees celsius.</h3>
 
                     <img src={`data:image/png;base64,${props.response.map}`} />
                     <p className="response-wrong-prompt">Wrong place? Try using a postcode or search with a more specific location name (eg, Bury, Greater Manchester)</p>
@@ -26,11 +26,13 @@ export const QueryResponse = (props) => {
         }
     }
 
-    return (
-        <div>
-            <Response />
-        </div>
-    )
+    if (props.response) {
+        return (
+            <div className="response element">
+                <Response />
+            </div>
+        )
+    }
 }
 
 export default QueryResponse
