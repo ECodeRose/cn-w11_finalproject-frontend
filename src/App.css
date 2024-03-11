@@ -125,6 +125,11 @@ h2 {
     padding: 20px;
 }
 
+button.dangerous {
+    align-self: center !important;
+    background-color: rgb(189, 0, 0);
+}
+
 .feedback {padding: 10px 10px; color: black}
 .feedback.type-error {background-color: rgb(252, 210, 162);}
 .feedback.type-success {background-color: rgb(204, 252, 164);}

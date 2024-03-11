@@ -39,7 +39,7 @@ export const QueryForm = (props) => {
                     className="location-search" 
                     placeholder={user.town}
                     onChange={(e) => setLocation(e.target.value)}
-                >{user.location}</input>
+                ></input>
                 <DatePicker 
                     selected={date}
                     dateFormat="dd MMM yyyy"
