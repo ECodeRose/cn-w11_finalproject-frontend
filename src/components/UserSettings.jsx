@@ -1,19 +1,23 @@
-import React from "react";
-import { useState, useNavigate } from "react-router-dom";
+import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { userContext } from "../common/contexts";
 const UserSettings = () => {
   const navigate = useNavigate();
 
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
+  const {user, setUser} = useContext(userContext);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (password === confirmPassword) {
-      const res = await fetch("/api/user/updatePassword", {
+      const res = await fetch(`${import.meta.env.VITE_SERVER_URL}/users/update/password`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${user.token}`
         },
         body: JSON.stringify({ password }),
       });
@@ -31,12 +35,18 @@ const UserSettings = () => {
   const handleDeleteAccount = async (e) => {
     e.preventDefault();
 
-    const res = await fetch("/api/user/deleteAccount", {
-      method: "DELETE",
+    console.log(user.token);
+
+    const res = await fetch(`${import.meta.env.VITE_SERVER_URL}/users/delUser`, {
+      method: "DELETE",      
+      headers: {
+        Authorization: `Bearer ${user.token}`
+      },
     });
 
     if (res.ok) {
       alert("Account deleted");
+      setUser(null);
       navigate("/");
     } else {
       alert("Failed to delete account");
@@ -59,7 +69,7 @@ const UserSettings = () => {
 
   return (
     <div>
-      <h1>User Settings</h1>
+      <h2>User Settings</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="password">New Password</label>
         <input

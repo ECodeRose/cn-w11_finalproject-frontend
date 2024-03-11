@@ -8,6 +8,7 @@ import Cookie from "js-cookie";
 import { getRequest } from "./common/requests";
 import { userContext } from "./common/contexts";
 import { useState } from "react";
+import LoginOrRegister from "./components/LoginOrRegister"
 
 function App() {
   const [user, setUser] = useState();
@@ -51,10 +52,15 @@ function App() {
       <BrowserRouter basename="">
         <Navbar />
         <div id="content">
+
+        { !user ?
+          <LoginOrRegister />
+          :
           <Routes>
             <Route path="" element={<PageHome />} />
             <Route path="/user" element={<PageUser />} />
           </Routes>
+        }
         </div>
       </BrowserRouter>
     </userContext.Provider>

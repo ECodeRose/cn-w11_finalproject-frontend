@@ -1,10 +1,8 @@
-import LoginOrRegister from "../components/LoginOrRegister";
-import QueryForm from "../components/QueryForm";
-import QueryResponse from "../components/QueryResponse";
+import UserSettings from "../components/UserSettings";
 const PageUser = (props) => {
   return (
     <>
-      <p>User Page</p>
+      <UserSettings />
     </>
   );
 };
