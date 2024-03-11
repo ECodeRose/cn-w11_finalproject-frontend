@@ -158,7 +158,7 @@ const UserSettings = () => {
       <div className="element noshadow">
         <h3>Delete account</h3>
         <form onSubmit={handleDeleteAccount}>
-          <button type="submit">Delete Account</button>
+          <button className="dangerous" type="submit">Delete Account</button>
         </form>
       </div>      
     </div>
