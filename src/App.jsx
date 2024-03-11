@@ -37,13 +37,12 @@ function App() {
         },
       }
     ).then((response) => {
-      console.log(response);
       return response.json();
+    }).then(async (response) => {
+      response.user.token = token;
+      console.log(response.user);
+      await setUser(response.user);
     });
-
-    console.log(`Bearer ${token}`);
-    console.log("Persistant User: ", authorizedUser.user);
-    setUser(authorizedUser.user);
   };
   return (
     // Allows us to reach "user" and "setUser" from any component.
