@@ -4,14 +4,14 @@ import Register from "./Register"
 import "./LoginRegister.css";
 
 export const LoginOrRegister = (props) => {
-    const [loginMode, setLoginMode] = useState(false);
+    const [loginMode, setLoginMode] = useState(true);
     const [feedback, setFeedback] = useState(null);
     const [feedbackType, setFeedbackType] = useState(null); // Either "error" or "success"
 
     useEffect(() => {}, [feedback]);
 
     return (
-        <div>
+        <div className="flex">
 
             <button onClick={() => {
                 setFeedback(null); // Clear feedback when switching forms.
