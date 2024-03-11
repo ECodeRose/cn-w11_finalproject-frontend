@@ -11,9 +11,10 @@ export const QueryForm = (props) => {
     const user = useContext(userContext).user;
 
     const sendRequest = async () => {
+
         const reqBody = JSON.stringify({
             date: date,
-            location: location,
+            location: location ? location : user.town,
         });
 
         const reqHeaders = {
@@ -34,11 +35,11 @@ export const QueryForm = (props) => {
         <div className="request element">
             <h2>Enter your location:</h2>
             <form className="request-form" onSubmit={(e) => e.preventDefault()}>
-                <input 
+                <input
                     className="location-search" 
-                    placeholder="Location"
+                    placeholder={user.town}
                     onChange={(e) => setLocation(e.target.value)}
-                ></input>
+                >{user.location}</input>
                 <DatePicker 
                     selected={date}
                     dateFormat="dd MMM yyyy"
