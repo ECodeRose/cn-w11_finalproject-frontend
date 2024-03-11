@@ -5,16 +5,24 @@ import Cookie from "js-cookie";
 
 export const NightModeToggle = () => {
     const {nightMode, setNightMode} = useContext(userContext);
-    const [cookieMode, setCookieMode] = useState(true);
+
+    useEffect(() => {        
+        if (Cookie.get("nightMode") == "true") {
+            console.log("cookie mode is true");
+            setNightMode(true);
+        } else {
+            console.log("cookie mode is false");
+        }
+
+        console.log(Cookie.get("nightMode"));
+
+    }, [setNightMode]);
 
     useEffect(() => {
-        if (!nightMode) {
-            document.cookie = "nightMode=true";
-        } else {
-            document.cookie = "nightMode=false";
-        }
-        let mode = Cookie.get("nightMode");
-        console.log("coookiue-mode", mode);
+
+        // if (!nightMode) document.cookie = "nightMode=0"
+        // else document.cookie = "nightMode=1"
+
         const variables = Array.from(document.styleSheets)
             .filter((styleSheet) => {
                 return styleSheet.cssRules;
@@ -39,7 +47,10 @@ export const NightModeToggle = () => {
     }, [nightMode]);
 
     return (
-        <div className="nightmode-toggle" onClick={()=>setNightMode(!nightMode)}>
+        <div className="nightmode-toggle" onClick={()=>{
+                document.cookie = `nightMode=${!nightMode}`
+                setNightMode(!nightMode)
+            }}>
             {!nightMode ?
                 <IoMdSunny />
                 :
