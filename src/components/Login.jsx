@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { userContext } from "../common/contexts";
 import { postRequest } from "../common/requests";
+import Cookie from "js-cookie";
 // import "./Login.css";
 // import { Link, useNavigate } from "react-router-dom";
 
@@ -17,30 +18,34 @@ export const Login = (props) => {
   const [pass, setPass] = useState("");
   const setUser = useContext(userContext).setUser;
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const reqBody = JSON.stringify({
-        username: username,
-        password: pass,
+      username: username,
+      password: pass,
     });
 
     const response = await postRequest(`${import.meta.env.VITE_SERVER_URL}/users/logIn`, reqBody);
 
     if (response.error) {
-      props.setFeedback(response.error)
+      props.setFeedback(response.error);
       props.setFeedbackType("error");
     } else {
-      props.setFeedback("Login successful.") // The page will probably update before this is visible but it's here just in case.
+      props.setFeedback("Login successful."); // The page will probably update before this is visible but it's here just in case.
       props.setFeedbackType("success");
       setUser(response.user);
+      Cookie.set(
+        "jwt_token",
+        response.user.token,
+        { expires: 7 },
+        { path: "/" }
+      );
     }
-  }
-
+  };
 
   return (
-    <div className="auth-form-container">
+    <>
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="username">username</label>
@@ -64,7 +69,7 @@ export const Login = (props) => {
       {/* <button onClick={() => props.onFormSwitch("register")}>
         Don&apos;t have an account? Register here
       </button> */}
-    </div>
+    </>
   );
 };
 
