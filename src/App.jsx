@@ -12,6 +12,7 @@ import LoginOrRegister from "./components/LoginOrRegister";
 
 function App() {
   const [user, setUser] = useState();
+  const [nightMode, setNightMode] = useState(false);
 
   useEffect(() => {
     if (document.cookie) {
@@ -37,18 +38,17 @@ function App() {
         },
       }
     ).then((response) => {
-      console.log(response);
       return response.json();
+    }).then(async (response) => {
+      response.user.token = token;
+      console.log(response.user);
+      await setUser(response.user);
     });
-
-    console.log(`Bearer ${token}`);
-    console.log("Persistant User: ", authorizedUser.user);
-    setUser(authorizedUser.user);
   };
   return (
     // Allows us to reach "user" and "setUser" from any component.
 
-    <userContext.Provider value={{ user, setUser }}>
+    <userContext.Provider value={{ user, setUser, nightMode, setNightMode }}>
       <BrowserRouter basename="">
         <Navbar />
         <div id="content">
