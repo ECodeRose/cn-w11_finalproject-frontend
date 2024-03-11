@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { IoMdSunny, IoMdMoon } from "react-icons/io";
+import { userContext } from "../common/contexts";
 import Cookie from "js-cookie";
 
 export const NightModeToggle = () => {
-    const [nightMode, setMode] = useState(false);
+    const {nightMode, setNightMode} = useContext(userContext);
     const [cookieMode, setCookieMode] = useState(true);
 
     useEffect(() => {
@@ -31,22 +32,19 @@ export const NightModeToggle = () => {
 
         variables.forEach((variable) => {
             if (variable.key.indexOf("Toggle") != -1) {
-                const newValue = variable.key.replace(
-                    "Toggle",
-                    nightMode ? "Night" : "Day"
-                );
-                console.log(variable.key, `var(${newValue})`);
-                document.documentElement.style.setProperty(
-                    variable.key,
-                    `var(${newValue})`
-                );
+                const newValue = variable.key.replace("Toggle", nightMode ? "Night" : "Day")
+                document.documentElement.style.setProperty(variable.key, `var(${newValue})`);
             }
         });
     }, [nightMode]);
 
     return (
-        <div className="nightmode-toggle" onClick={() => setMode(!nightMode)}>
-            {!nightMode ? <IoMdSunny /> : <IoMdMoon />}
+        <div className="nightmode-toggle" onClick={()=>setNightMode(!nightMode)}>
+            {!nightMode ?
+                <IoMdSunny />
+                :
+                <IoMdMoon />
+            }
         </div>
     );
 };
