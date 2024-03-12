@@ -15,6 +15,8 @@ export async function postRequest(url, query, headers) {
 export async function getRequest(url, headers) {
     if (!headers) headers = {"Content-Type": "application/json"}
 
+    console.log("headers:", headers);
+
     return parseResponse(await fetch(url, {
         method: "GET",
         headers: headers,
